@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1 {
+  color: #FFF;
+}
+.shop {
+  color:#E88D0B;
+}
+
+main {
+  height: 80vh;
+}
+
+/* --- NAV --- */
+nav {
+  background-color: #00488C;
+}
+nav ul li {
+  font-size: 1rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #FFF;
+}
+nav ul li a:hover {
+  color: #E88D0B;
+}
+#enlaceNav {
+  color: #E88D0B;
+}
+.btn-menu {
+  background-color: #FFF;
+  border-color: #FFF;
+}
+
+/* --- CARRITO --- */
+.carrito {
+  width: 32px;
+  height: 32px;
+} 
+
+/* --- FOOTER --- */
+.footer {
+  height: 80px;
+  background-color: #00488C;
+  color: #ccc;
+}
+.footer p {
+  font-size: 1rem;
+}
