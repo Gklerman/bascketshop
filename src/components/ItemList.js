@@ -3,11 +3,10 @@ import Item from "./Item";
 const ItemList = ({productos}) => {
 
     return (
-    
-        <div>
-            {Array.isArray(productos) ? productos.map(producto => {
+        <div className="row">
+            {Array.isArray(productos) ? productos.map((producto, index) => {
                 return (
-                    <Item producto={producto} key={producto.id} />
+                    <Item producto={producto} key={index} />
                 )
             })
             : null}

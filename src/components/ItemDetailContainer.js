@@ -22,6 +22,8 @@ const ItemDetailContainer = () => {
 
         const pedido = fetch('https://free-nba.p.rapidapi.com/teams/{id}/', options)
         
+        //const pedido = fetch('https://swapi.dev/api/')
+
         pedido
         .then((response) => {
             const detalle = response.json()
@@ -36,16 +38,12 @@ const ItemDetailContainer = () => {
         });
     },[])
 
-    return (
-
+    return (        
         <div>
             {load ? 'Detalle Producto' : 'Cargando...'}
-            <article>
                 <ItemList producto={detalle.id}/>
                 {console.log(id)}
-            </article>
         </div>
-
     )
     
 }

@@ -4,7 +4,7 @@ import ItemDetailContainer from "./ItemDetailContainer";
 
 const Main = () => {
     return (
-        <main>
+        <main className="container">
             <Routes>
                 <Route path="/" element={<ItemListContainer/>}></Route>
                 <Route path="/category/:categoryId" element={<ItemListContainer/>}></Route>

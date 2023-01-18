@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
+
+    /* Tambien te falta en el ItemListContainer usar el useParams 
+    para poder filtrar por categoría desde el nav. sino siempre 
+    te tira el total de los items. */
     
     const [load,setLoad] = useState(false)
     const [productos,setProductos] = useState([])
@@ -16,7 +20,9 @@ const ItemListContainer = () => {
             }
         };
 
-        const pedido = fetch('https://free-nba.p.rapidapi.com/teams', options)
+        const pedido = fetch('https://free-nba.p.rapidapi.com/teams/', options)
+
+        //const pedido = fetch('https://swapi.dev/api/people/')
         
         pedido
         .then((response) => {
@@ -24,7 +30,7 @@ const ItemListContainer = () => {
             return productos
         })
         .then((productos) => {
-            //console.log(productos)
+            console.log(productos.data)
             setProductos(productos.data)
             setLoad(true)
         })
