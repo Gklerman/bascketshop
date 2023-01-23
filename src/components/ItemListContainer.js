@@ -33,6 +33,7 @@ const ItemListContainer = () => {
             return productos
         })
         .then((productos) => {
+            //const filteredCategory = categoryId.filter((category) => category.conference === 'East')
             setProductos(productos.data)
             setLoad(true)
         })
@@ -44,9 +45,14 @@ const ItemListContainer = () => {
 
     return (
 
+        /*filteredCategory.map((category) => (
+            <div key={category.conference}>{category.conference}</div>
+        )),*/
+
         <div>
             {load ? 'Productos Cargados' : 'Cargando... '}
-            <ItemList productos={productos} key={productos}/> 
+            <ItemList productos={productos} key={productos}/>
+
         </div>
         
     )
