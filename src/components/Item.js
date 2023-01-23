@@ -11,11 +11,9 @@ const Item = ({producto}) => {
                 <p>{producto.conference}</p>
                 <p>{producto.division}</p>
                 
-                <Link to={"/item/" + producto.id}>Ver más</Link>
+                <Link to={`/item/${producto.full_name}`}>Ver más</Link>
             </article>
-        </div>
-
-           
+        </div>      
     )
 }
 

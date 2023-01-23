@@ -1,4 +1,25 @@
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"
+//import { useEffect, useState } from "react";
+//import ItemList from "./ItemList"
+import ItemDetail from "./ItemDetail"
+
+const ItemDetailContainer = () => {
+
+    const params = useParams()
+    console.log(params.id)
+
+    return (
+        <div>
+            {/*load ? 'Productos Cargados' : 'Cargando... '*/}
+            <ItemDetail params={params.id}/>
+        </div>
+    )
+}
+
+export default ItemDetailContainer;
+
+/*import { useEffect, useState } from "react";
+
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 
@@ -20,7 +41,7 @@ const ItemDetailContainer = () => {
             }
         };
 
-        const pedido = fetch('https://free-nba.p.rapidapi.com/teams/{id}/', options)
+        const pedido = fetch('https://free-nba.p.rapidapi.com/teams/', options)
         
         //const pedido = fetch('https://swapi.dev/api/')
 
@@ -30,7 +51,8 @@ const ItemDetailContainer = () => {
             return detalle
         })
         .then((detalle) => {
-            setDetalle(detalle.data)
+            console.log(detalle.data)
+            setDetalle(detalle.id)
             setLoad(true)
         })
         .catch((err) => {
@@ -41,11 +63,11 @@ const ItemDetailContainer = () => {
     return (        
         <div>
             {load ? 'Detalle Producto' : 'Cargando...'}
-                <ItemList producto={detalle.id}/>
-                {console.log(id)}
+                <ItemList productos={detalle}/>
+                {console.log(detalle.id)}
         </div>
     )
     
 }
 
-export default ItemDetailContainer;
+export default ItemDetailContainer;*/

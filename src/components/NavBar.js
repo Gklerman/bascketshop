@@ -13,9 +13,9 @@ const NavBar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent"> 
                     <ul className="navbar-nav mb-2 ms-auto mb-lg-0 d-flex list-unstyled">
-                        <li className="nav-item m-1 p-2"><Link to={"/category/jerseys"}>Jerseys</Link></li>
-                        <li className="nav-item m-1 p-2"><Link to={"/category/shorts"}>Shorts</Link></li>
-                        <li className="nav-item m-1 p-2"><Link to={"/category/pelotas"}>Pelotas</Link></li>
+                        <li className="nav-item m-1 p-2"><Link to={`/category/east`}>East</Link></li>
+                        <li className="nav-item m-1 p-2"><Link to={`/category/west`}>West</Link></li>
+                        <li className="nav-item m-1 p-2"><Link to={`/category/players`}>Players</Link></li>
                     </ul>
                 </div>
                 <CartWidget />

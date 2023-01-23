@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
 
@@ -9,6 +10,8 @@ const ItemListContainer = () => {
     
     const [load,setLoad] = useState(false)
     const [productos,setProductos] = useState([])
+    const {categoryId} = useParams()
+    console.log(categoryId)
 
     useEffect(() => {
 
@@ -20,30 +23,30 @@ const ItemListContainer = () => {
             }
         };
 
-        const pedido = fetch('https://free-nba.p.rapidapi.com/teams/', options)
+        const pedido = fetch(`https://free-nba.p.rapidapi.com/teams/`, options)
 
         //const pedido = fetch('https://swapi.dev/api/people/')
-        
+
         pedido
         .then((response) => {
             const productos = response.json()
             return productos
         })
         .then((productos) => {
-            console.log(productos.data)
             setProductos(productos.data)
             setLoad(true)
         })
         .catch((err) => {
             console.error(err)
         });
+
     },[])
 
     return (
 
         <div>
             {load ? 'Productos Cargados' : 'Cargando... '}
-            <ItemList productos={productos}/>   
+            <ItemList productos={productos} key={productos}/> 
         </div>
         
     )
