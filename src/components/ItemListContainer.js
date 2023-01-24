@@ -3,15 +3,10 @@ import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
-
-    /* Tambien te falta en el ItemListContainer usar el useParams 
-    para poder filtrar por categoría desde el nav. sino siempre 
-    te tira el total de los items. */
     
     const [load,setLoad] = useState(false)
     const [productos,setProductos] = useState([])
     const {categoryId} = useParams()
-    console.log(categoryId)
 
     useEffect(() => {
 
@@ -25,29 +20,29 @@ const ItemListContainer = () => {
 
         const pedido = fetch(`https://free-nba.p.rapidapi.com/teams/`, options)
 
-        //const pedido = fetch('https://swapi.dev/api/people/')
-
         pedido
         .then((response) => {
             const productos = response.json()
             return productos
         })
         .then((productos) => {
-            //const filteredCategory = categoryId.filter((category) => category.conference === 'East')
-            setProductos(productos.data)
-            setLoad(true)
+            if(categoryId === undefined) {
+                setProductos(productos.data)
+                setLoad(true)
+            } else {
+                const filteredCategory = productos.data.filter((category) => category.conference === categoryId)
+                setProductos(filteredCategory)
+                setLoad(true)
+            }
+            
         })
         .catch((err) => {
             console.error(err)
         });
 
-    },[])
+    },[categoryId])
 
     return (
-
-        /*filteredCategory.map((category) => (
-            <div key={category.conference}>{category.conference}</div>
-        )),*/
 
         <div>
             {load ? 'Productos Cargados' : 'Cargando... '}

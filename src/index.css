@@ -21,6 +21,9 @@ code {
 h1 {
   color: #FFF;
 }
+h3 {
+  font-size: 1rem;
+}
 .shop {
   color:#E88D0B;
 }
@@ -52,7 +55,9 @@ nav ul li a:hover {
 }
 
 .card {
-  max-width: 400px;
+  max-width: 350px;
+  min-height: 250px;
+  border: 1px solid #000;
 }
 
 /* --- CARRITO --- */
