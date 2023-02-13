@@ -1,16 +1,25 @@
+import ItemCount from './ItemCount';
+import { useCarrito } from './CartContext';
 
+const ItemDetail = ({producto}) => {
 
-const ItemDetail = ({params}) => {
+    const{agregarProducto} = useCarrito()
+
+    const onAdd = (cantidad) => {
+        agregarProducto(producto, cantidad)
+    }
+
     return (
-        <div className="col-3">
-            <article className="card">
+        <div className="col-3 p-2">
+            <article className="card d-flex justify-content-center align-items-center text-center">
                 <div className="card-body">
-                    <h3 className="card-title text-center">{params}</h3>
+                    <h3 className="card-title text-center">{producto.title}</h3>
                 </div>
-                <p className="text-center pb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aperiam veniam odit, asperiores ipsam laborum aliquid. 
-                Aliquam hic asperiores laborum ducimus velit aspernatur 
-                dolorum voluptatum eveniet!</p>
+                <img className="card-logo" src={producto.image} alt="" />
+                <p>Category: {producto.category}</p>
+                <p className="pb-3">Division: {producto.division}</p>
+                <p>Price: <b>{producto.price}</b></p>
+                <ItemCount stock={producto.stock} onAdd={onAdd} />
             </article>
         </div>
     )
